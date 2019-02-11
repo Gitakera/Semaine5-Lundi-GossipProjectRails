@@ -1,0 +1,75 @@
+
+
+<div class="container" style="float:left;width: 60%; margin-top: 5%;">
+<table class="table table-hover" >
+  <thead >
+    <tr >
+      
+      <th scope="col" style=" width: 20%">Nom de l'auteur</th>
+      <th scope="col" style=" width: 20%">Titre</th>
+      <th scope="col" style=" width: 20% ;" > </th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    
+    <%  @u.each do |i|  %>
+    <tr >
+      
+      <td style="font-size: 90%; width: 20%;text-shadow: 1px 1px 1px silver;"><%= i.user.first_name %></td>
+      <td style="font-size: 85%; width: 20%"><%= i.title %></td>
+      <td style="font-size: 100%; width: 20%;">
+      <a href="/afficher_detail/<%=i.id%>" class="btn btn-info float-right width: 20% ">infos sur le potin ---></a>
+        
+       
+      </td>
+     
+    </tr>
+   <% end%>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+<% if (defined? @titre)
+          nom_user=@first_name
+          title_gossip=@titre
+          content_gossip=@content
+          date_creation=@date
+          
+        else
+          
+          nom_user="#abscent de la base"
+          title_gossip=""
+          content_gossip=""
+          date_creation=""
+        end
+      %>
+
+<div class="card mb-3" style="position: fixed; right:1%; top: 10%; width:35%; ">
+  <img src="<%=Faker::Avatar.image%>" class="card-img-top" alt="..." height="200">
+  
+  <div class="card-body">
+    <h5 class="card-title"><%=title_gossip%></h5>
+    <p class="card-text"><%=content_gossip%></p>
+    <p class="card-text"><small class="text-muted">sortie le : <%=date_creation%><br/> ouevre de : <%=nom_user%> 
+
+    <a href="/afficher_detail/" class="btn btn-light width: 20% ;" style=" font-size: 75%;">voir le profil</a>
+
+
+
+
+    </small></p>
+  </div>
+
+   <div class="card-footer" >
+    <small class="text-muted">Bien verifier vos modifications       </small>
+	    <div class="float-right">
+		    <a href="" class="btn btn-light">editer</a>
+		    <a href="" class="btn btn-danger" style="background-color: rgb(220,120,120);">supprimer</a>
+	    </div>
+   </div>
+

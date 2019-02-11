@@ -1,0 +1,2 @@
+module GossipViaLinkHelper
+end
